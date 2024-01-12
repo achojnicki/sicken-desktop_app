@@ -65,7 +65,8 @@ class Chat_Page(wx.Panel):
 
         s='add_sickens_message("{0}");'.format(message)
         print(s)
-        self.html.RunScript(s)
+        wx.CallAfter(self.html.RunScript, s)
+
 
 
 
