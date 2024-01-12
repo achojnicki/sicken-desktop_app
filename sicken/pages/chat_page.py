@@ -15,7 +15,7 @@ class Chat_Page(wx.Panel):
         self._chat_uuid=None
         self._user_uuid=None
 
-        self.chat_template=open("chat.view",'r').read()
+        self.chat_template=open("views/chat.view",'r').read()
         self.sizer=wx.BoxSizer(wx.VERTICAL)        
 
         self.html=wx.html2.WebView.New(self)
