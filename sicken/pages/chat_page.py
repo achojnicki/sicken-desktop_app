@@ -20,8 +20,8 @@ class Chat_Page(wx.Panel):
 
         self.html=wx.html2.WebView.New(self)
         self.html.SetPage(self.chat_template,"")
-        self.html.EnableContextMenu(True)
-        self.html.EnableAccessToDevTools(True)
+        self.html.EnableContextMenu(False)
+        self.html.EnableAccessToDevTools(False)
 
         self.textctrl=wx.TextCtrl(self,
             id=wx.ID_ANY,

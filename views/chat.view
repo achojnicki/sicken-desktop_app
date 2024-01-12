@@ -20,30 +20,46 @@
         st+=1000;
       }
       function add_user_message(message) {
-        horizontal=document.createElement('div');
-        horizontal.classList.add("horizontal_container");
-        users=document.createElement('div');
-        users.classList.add('users_message_div');
+        // Element creation
+        var horizontal = document.createElement("div");
+        horizontal.className = "horizontal_container"; // Use className
+
+        var users = document.createElement("div");
+        users.className = "users_message_div"; // Use className
         horizontal.appendChild(users);
-        p=document.createElement('p');
-        p.innerHTML=message;
-        p.classList.add('users_message_p');
+
+        var p = document.createElement("p");
+        p.innerHTML = message;
+        p.className = "users_message_p"; // Use className
         users.appendChild(p);
-        chat_container=document.getElementById('chat_container').appendChild(horizontal);
+
+        // Appending to chat container
+        var chatContainer = document.getElementById("chat_container");
+        chatContainer.appendChild(horizontal);
+
+        // Scrolling (assuming a scroll function is defined elsewhere)
         scroll();
       }
 
       function add_sickens_message(message) {
-        horizontal=document.createElement('div');
-        horizontal.classList.add("horizontal_container");
-        sickens=document.createElement('div');
-        sickens.classList.add('sickens_message_div');
+        // Element creation
+        var horizontal = document.createElement("div");
+        horizontal.className = "horizontal_container"; // Use className for IE compatibility
+
+        var sickens = document.createElement("div");
+        sickens.className = "sickens_message_div";
         horizontal.appendChild(sickens);
-        p=document.createElement('p');
-        p.innerHTML=message;
-        p.classList.add('sickens_message_p');
+
+        var p = document.createElement("p");
+        p.innerHTML = message;
+        p.className = "sickens_message_p";
         sickens.appendChild(p);
-        chat_container=document.getElementById('chat_container').appendChild(horizontal);
+
+        // Appending to chat container
+        var chatContainer = document.getElementById("chat_container");
+        chatContainer.appendChild(horizontal);
+
+        // Scrolling (assuming a scroll function is defined elsewhere)
         scroll();
       }
 
