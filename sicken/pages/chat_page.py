@@ -1,3 +1,5 @@
+from html import escape
+
 import wx
 import wx.html2
 import wx.stc
@@ -13,13 +15,13 @@ class Chat_Page(wx.Panel):
         self._chat_uuid=None
         self._user_uuid=None
 
-        self.chat_template=open("views/chat.view",'r').read()
+        self.chat_template=open("chat.view",'r').read()
         self.sizer=wx.BoxSizer(wx.VERTICAL)        
 
         self.html=wx.html2.WebView.New(self)
         self.html.SetPage(self.chat_template,"")
-        self.html.EnableContextMenu(False)
-        self.html.EnableAccessToDevTools(False)
+        self.html.EnableContextMenu(True)
+        self.html.EnableAccessToDevTools(True)
 
         self.textctrl=wx.TextCtrl(self,
             id=wx.ID_ANY,
@@ -52,10 +54,18 @@ class Chat_Page(wx.Panel):
                 )
             
     def add_user_message(self, message):
+        message=escape(message)
         self.html.RunScript('add_user_message("{0}");'.format(message))
 
     def add_sickens_message(self, message):
-        self.html.RunScript('add_sickens_message("{0}");'.format(message))
+        message=message.replace('\r','')
+        message=message.replace('\t','')
+        message=escape(message)
+        message=message.replace('\n','<br>')
+
+        s='add_sickens_message("{0}");'.format(message)
+        print(s)
+        self.html.RunScript(s)
 
 
 

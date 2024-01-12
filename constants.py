@@ -1,2 +1,2 @@
-API_URL="http://api.sicken.local"
-SOCKETIO_URL="http://localhost:10003"
+API_URL="https://api.sicken.ai"
+SOCKETIO_URL="https://socketio.sicken.ai"
